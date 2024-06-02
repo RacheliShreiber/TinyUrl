@@ -2,13 +2,10 @@ import mongoose from "mongoose"
 
 const TargetSchema = mongoose.Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     value: {
-        type: String,
-        required: true
+        type: String
     }
-
 })
 export default mongoose.model("targets", TargetSchema)

@@ -11,27 +11,7 @@ dotenv.config()
 connectDB()
 const app = express()
 const port = 3000
-//sprint 2-Tracking
-app.get('/track/:id', async (req, res) => {
-    try {
-        const link = await LinkModel.findById(req.params.id)
-        if (!link) {
-            return res.status(404).json({ message: 'Link not found' })
-        }
-        const targetParamName = link.targetParamName;
-        const targetParamValue = req.query[targetParamName] || ""
-        const ipAddress = req.ip
-        const newClick = {
-            ipAddress: ipAddress,
-            targetParamValue: targetParamValue
-        }
-        link.clicks.push(newClick)
-        await link.save()
-        res.redirect(link.originalUrl)
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
+
 //sprint 3-Targeting
 app.get('/target/:id', async (req, res) => {
     try {
