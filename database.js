@@ -1,10 +1,10 @@
 import mongoose from "mongoose"
 
-const uri = "mongodb+srv://rachel:rachel!11@cluster0.mcthkpq.mongodb.net/TinyUrl?retryWrites=true&w=majority&appName=Cluster0"
+const uri = process.env.DB_URI
 const uriLocal = "mongodb://127.0.0.1:27017/TinyUrl"
 
 const connectDB = async () => {
-    await mongoose.connect(uri)
+    await mongoose.connect(uriLocal)
 }
 
 mongoose.set('toJSON', {

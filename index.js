@@ -1,11 +1,13 @@
 import express from 'express'
 import cors from 'cors'
+import dotenv from 'dotenv'
 
 import connectDB from './database.js'
 import LinksRouter from './Routers/LinkRouter.js'
 import UsersRouter from './Routers/UserRouter.js'
 import LinkModel from './Models/LinkModel.js'
 
+dotenv.config()
 connectDB()
 const app = express()
 const port = 3000
