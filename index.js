@@ -31,6 +31,7 @@ app.get('/target/:id', async (req, res) => {
 })
 
 app.use(cors())
+app.use(express.json())
 
 app.use('/links', LinksRouter)
 app.use('/users', UsersRouter)
